@@ -7,10 +7,12 @@
 })
 </head>
 <body>
+  <!-- nav for mobile -->
   @@include('./dashboard/_nav.html', {
     "path": "../.."
   })
 
+  <!-- menu del lado izquierdo -->
   @@include('./dashboard/_sidenav.html', {
     "path": "../..",
     "page": "pa-list",
@@ -26,6 +28,11 @@
 
 
     Lisa de programas analiticos
+
+    @@include('./dashboard/_footer.html', {
+      "path": "..",
+      "classes": "text-dark"
+    })
   </main>
 
 
