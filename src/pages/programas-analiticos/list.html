@@ -5,6 +5,9 @@
     "path": "../..",
     "title": "Lista de programas analíticos"
 })
+<!-- for datatable -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+
 </head>
 <body>
   <!-- nav for mobile -->
@@ -24,10 +27,43 @@
       "path": "../.."
     })
 
+    <div class="py-4">
     
+      <!-- breadcrumb -->
+      <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+          <li class="breadcrumb-item">
+            <a href="#">
+              <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="breadcrumb-item"><a href="#">Programas analíticos</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Lista</li>
+        </ol>
+      </nav>
+    
+    
+      <div class="d-flex justify-content-between w-100 flex-wrap">
+        <div class="mb-3 mb-lg-0">
+          <h1 class="h4">Lista de programas analiticos</h1>
+          <p class="mb-0">Está es la lista de todos los programas analíticos registrados.</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="table-responsive">
+      @@include('./_data-example.html', {
+        "path": "../.."
+      })
+    </div>
 
-
-    Lisa de programas analiticos
+    <div class="row">
+      <div class="col-lg-12">
+            </div>
+          </div>
 
     @@include('./dashboard/_footer.html', {
       "path": "..",
@@ -42,5 +78,16 @@
   @@include('./_scripts.html', {
     "path": "../.."
   })
+
+  <!-- for datatable -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    new DataTable('#example');
+    // node_select = document.getElementById('example_length').children.children
+    // hay que modificarle el md=1.5rem y mi=0.5
+    
+  </script>
 </body>
 </html>
