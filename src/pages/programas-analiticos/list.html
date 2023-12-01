@@ -50,6 +50,14 @@
           <h1 class="h4">Lista de programas analiticos</h1>
           <p class="mb-0">Está es la lista de todos los programas analíticos registrados.</p>
         </div>
+        <div>
+          <a href="#" class="btn btn-primary d-inline-flex align-items-center">
+            <svg class="icon icon-xs me-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z" fill-rule="evenodd"></path>
+            </svg>
+              Registrar nuevo P. A.
+          </a>
+      </div>
       </div>
     </div>
     
@@ -84,7 +92,21 @@
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
   <script>
-    new DataTable('#example');
+
+    var table = new DataTable('#example', {
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json',
+            //Se puede incorporar como código para no requerir de internet
+             //https://datatables.net/plug-ins/i18n/Spanish.html
+        },
+        columns: [
+          { name: 'materia' },
+          { name: 'codigo' },
+          { name: 'nro_hojas' },
+          { name: 'carrera',  "searchable": false, },
+          { name: 'opciones', "searchable": false, }
+        ],
+    }); 
     // node_select = document.getElementById('example_length').children.children
     // hay que modificarle el md=1.5rem y mi=0.5
     
