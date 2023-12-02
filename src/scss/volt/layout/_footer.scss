@@ -2,9 +2,7 @@
  * = Footers
  */
 
-.footer{
-    @include display-flex();
-    position: relative;
+ .footer{
 
     ul{
         margin-bottom: 0;

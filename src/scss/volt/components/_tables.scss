@@ -8,7 +8,7 @@
       font-size: $table-head-font-size;
       text-transform: $table-head-text-transform;
       font-weight: $font-weight-bolder;
-      border-top: $table-border-width solid $table-border-color;
+      border-top: 0;
   }
 
   th {
@@ -52,7 +52,7 @@
 
  .thead-dark {
       th {
-          background-color: $dark;
+          background-color: $gray-800;
           color: $white;
 
           a {
@@ -66,7 +66,7 @@
 
   .thead-light {
       th {
-          background-color: $soft;
+          background-color: $gray-100;
           color: $dark;
 
           a {
@@ -183,15 +183,22 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    
+
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+
+        .dataTable-info {
+            margin-bottom: 1rem;
+        }
+    }
 }
 
 .dataTable-top {
-    padding: 0 1.5rem 1rem 1.5rem;
+    padding: 0 0 1rem 0;
 }
 
 .dataTable-bottom {
-    padding: 1.5rem 1.5rem 0 1.5rem;
+    padding: 1.5rem 0 0 0;
 }
 
 .dataTable-pagination {
@@ -207,13 +214,13 @@
     @if $pagination-margin-left == (-$pagination-border-width) {
         &:first-child {
         a {
-            @include border-left-radius($pagination-border-radius);
+            @include border-start-radius($pagination-border-radius);
         }
         }
 
         &:last-child {
         a {
-            @include border-right-radius($pagination-border-radius);
+            @include border-end-radius($pagination-border-radius);
         }
         }
     } @else {

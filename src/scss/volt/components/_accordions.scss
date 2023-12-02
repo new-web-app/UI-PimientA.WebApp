@@ -1,53 +1,52 @@
 /**
  * = Accordions
- */
+*/
 
-.accordion .card {
-    margin-bottom: 1.5rem;
-}
 
-.accordion-panel-header {
-    @include display-flex();
-    @include justify-content(space-between);
-    @include align-items(center);
-    user-select: none;
-
-    .icon {
-        color: $dark;
-        transition: $transition-base;
-        i {
-            font-size: $font-size-sm;
-        }
-    }
-    .icon-title {
-        margin-right: 1rem;
-        i {
-            margin-right: 1rem;
-        }
-
-        & + .icon {
-            height: 1rem;
+.accordion-button {
+    text-align: left;
+    &:not(.collapsed) {
+        &::after {
+          background-image: none;
+          @include transform(rotateZ(45deg));
         }
     }
 
-    &[aria-expanded="true"]{
-        > .icon {
-            @include transform(rotateZ(180deg));
-        }
+    // Accordion icon
+    &::after {
+        background-image: none;
+        content: '\f067';
+        font-family: $font-awesome-5;
+        font-size: $font-size-base;
+        font-weight: 900;
     }
 
-    &[aria-expanded="true"], &:hover{
-        > * {
-        color: theme-color('secondary');
-        @include transition($transition-base);
-            i { 
-                @include transition($transition-base);
-                fill: theme-color('secondary');
-            }
-        }
-    }
-
-    &:hover {
-        cursor: pointer;
+    &:hover{
+        background-color: $gray-200;
     }
 }
+  
+  
+// Flush accordion items
+//
+// Remove borders and border-radius to keep accordion items edge-to-edge.
+
+.accordion-flush {
+    .accordion-button {
+        background-color: transparent;
+        &:not(.collapsed) {
+            color: $tertiary;
+        }
+        &:focus {
+            border-color: $gray-300;
+            box-shadow: none;
+        }
+    }
+    .accordion-collapse {
+        border: 0;
+    }
+}
+
+
+
+
