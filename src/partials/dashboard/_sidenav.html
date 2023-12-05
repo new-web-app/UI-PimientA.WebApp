@@ -61,7 +61,7 @@
           <span>
             <span class="sidebar-icon">
               <svg class="icon icon-xs me-2" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
             </span> 
             <span class="sidebar-text">Programas Analític.</span>
@@ -75,15 +75,28 @@
           <ul class="flex-column nav">
             <li class="nav-item @@if (context.page === 'pa-list') { active }">
               <a class="nav-link ms-2" href="@@path/pages/programas-analiticos/list.html">
-                <span class="sidebar-text">Lista</span>
+                <span class="sidebar-text">
+                  <span class="sidebar-icon">
+                    <svg class="icon icon-xs me-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  Listar
+                </span>
               </a>
             </li>
             <li class="nav-item @@if (context.page === 'pa-create') { active }">
               <a class="nav-link ms-2" href="@@path/pages/programas-analiticos/create.html">
-                <span class="sidebar-text">Registrar</span>
+                <span class="sidebar-text">
+                  <span class="sidebar-icon">
+                    <svg class="icon icon-xs me-0" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z"></path>
+                    </svg>
+                  </span>
+                  Registrar</span>
               </a>
             </li>
-            
+
           </ul>
         </div>
       </li>
