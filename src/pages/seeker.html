@@ -1,1 +1,113 @@
-Buscador de PAs
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  @@include('./_head.html', {
+    "path": "..",
+    "title": "Bucador de programas analíticos"
+})
+<!-- for datatable -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+
+</head>
+<body>
+  <!-- nav for mobile -->
+  @@include('./dashboard/_nav.html', {
+    "path": ".."
+  })
+
+  <!-- menu del lado izquierdo -->
+  @@include('./dashboard/_sidenav.html', {
+    "path": "..",
+    "page": "seeker",
+  })
+
+  <main class="content">
+    @@include('./dashboard/_topbar.html', {
+      "path": ".."
+    })
+
+    <div class="py-4">
+      <div class="d-flex justify-content-center w-100 flex-wrap">
+        <div class="mb-3 mb-lg-0">
+          <h1 class="h2 fw-bolder text-primary">Buscador de programas analíticos</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <div class="mb-3">
+          <div class="input-group" style="height: 45px;">
+            <span class="input-group-text" id="basic-addon1">
+              <svg class="icon icon-md" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+              </svg>
+            </span>
+            <input type="search" class="form-control" id="inputSeeker" placeholder="Escriba el nombre o código de la materia" aria-label="Search" autofocus>
+          </div>
+        </div>
+      </div>
+    </div>
+        
+    
+    <div class="table-responsive">
+      @@include('./_data-example-seeker.html', {
+        "path": "../.."
+      })
+    </div>
+
+    @@include('./dashboard/_footer.html', {
+      "path": "..",
+      "classes": "text-dark"
+    })
+  </main>
+
+  <!-- modals para previsualizar y emitir-->
+  @@include('./_modals-seeker.html', {
+    "path": "../.."
+  })
+
+  <!-- scripts -->
+  @@include('./_scripts.html', {
+    "path": "../.."
+  })
+
+  <!-- for datatable -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+
+    var table = new DataTable('#example', {
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json',
+            //Se puede incorporar como código para no requerir de internet
+             //https://datatables.net/plug-ins/i18n/Spanish.html
+        },
+        columns: [
+          { name: 'materia', orderable: false },
+          { name: 'codigo' , orderable: false },
+          { name: 'nro_hojas', "searchable": false, orderable: false },
+          { name: 'carrera',   "searchable": false, orderable: false },
+          { name: 'opciones',  "searchable": false, orderable: false }
+        ],
+          
+        "dom": 'rtp', // ocultando varios elementos (o mostrando algunos elementos)
+        //habilitar scroll Y 
+        "scrollY": "45vh",
+        "scrollCollapse": true,
+        "paging": false,
+
+    }); 
+    // node_select = document.getElementById('example_length').children.children
+    // hay que modificarle el md=1.5rem y mi=0.5
+
+    oTable = $('#example').DataTable();   //pay attention to capital D, which is mandatory to retrieve "api" datatables' object, as @Lionel said
+    $('#inputSeeker').keyup(function(){
+          oTable.search($(this).val()).draw() ;
+    })
+
+    
+  </script>
+</body>
+</html>
